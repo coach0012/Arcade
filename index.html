@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monad Arcade</title>
 <style>
-/* ============================
-   FONT: Calibri system font
-============================ */
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: Calibri, 'Calibri', 'Segoe UI', Arial, sans-serif;
@@ -15,25 +12,8 @@ body {
   color: #1a0533;
   min-height: 100vh;
 }
-
-/* COLORS:
-   --pur:      #7B2FBE  (main purple)
-   --pur-l:    #9B59E8  (lighter purple)
-   --pur-pale: #EDE4FF  (very light)
-   --pur-bg:   #F3EEFF  (page background)
-   --white:    #FFFFFF
-   --border:   #D5C2F0
-*/
-
-/* ============================
-   SCREENS
-============================ */
 .screen { display:none; min-height:100vh; flex-direction:column; }
 .screen.active { display:flex; }
-
-/* ============================
-   NAVBAR
-============================ */
 .navbar {
   background:#fff;
   border-bottom:2px solid #D5C2F0;
@@ -57,12 +37,7 @@ body {
   border-radius:20px; padding:4px 14px;
   font-weight:700; font-size:0.88rem; color:#7B2FBE;
 }
-
-/* ============================
-   HUB SCREEN
-============================ */
 #hub { background:#F3EEFF; }
-
 .hub-hero {
   background:linear-gradient(135deg, #7B2FBE 0%, #9B59E8 100%);
   padding:3rem 2rem 2.5rem;
@@ -86,12 +61,9 @@ body {
 .hub-hero-icon svg { width:100%; fill:#fff; }
 .hub-hero h1 { font-size:2.3rem; font-weight:800; position:relative; z-index:1; margin-bottom:.4rem; }
 .hub-hero p  { font-size:1rem; opacity:.88; position:relative; z-index:1; }
-
 .hub-content { max-width:960px; margin:0 auto; padding:2rem 1.5rem; width:100%; }
 .section-label { font-size:.78rem; font-weight:700; color:#9B59E8; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.2rem; }
-
 .games-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(270px,1fr)); gap:1.2rem; }
-
 .game-card {
   background:#fff;
   border:2px solid #D5C2F0;
@@ -102,7 +74,6 @@ body {
 .game-card:hover { border-color:#9B59E8; transform:translateY(-3px); box-shadow:0 10px 28px rgba(123,47,190,0.15); }
 .game-card.locked { opacity:.6; cursor:default; }
 .game-card.locked:hover { transform:none; box-shadow:none; border-color:#D5C2F0; }
-
 .card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; }
 .card-emoji { font-size:2.2rem; }
 .card-tag { font-size:.68rem; font-weight:700; padding:3px 10px; border-radius:20px; border:1.5px solid; }
@@ -120,10 +91,6 @@ body {
 }
 .play-btn:hover { background:#9B59E8; }
 .play-btn.grey { background:#EDE4FF; color:#7B6B99; cursor:default; }
-
-/* ============================
-   PAGE HEADER (shared)
-============================ */
 .page-header {
   background:#fff; border-bottom:2px solid #D5C2F0;
   padding:1rem 1.5rem;
@@ -138,10 +105,6 @@ body {
 .back-btn:hover { background:#D5C2F0; }
 .ph-text h2 { font-size:1.1rem; font-weight:800; color:#1a0533; }
 .ph-text p  { font-size:.82rem; color:#7B6B99; }
-
-/* ============================
-   LEVEL SELECT
-============================ */
 #levelSelect { background:#F3EEFF; }
 .ls-body { max-width:900px; margin:0 auto; padding:1.5rem; width:100%; }
 .ls-stats { display:flex; gap:1rem; margin-bottom:1.8rem; flex-wrap:wrap; }
@@ -151,7 +114,6 @@ body {
 }
 .ls-stat-n { font-size:1.5rem; font-weight:800; color:#7B2FBE; }
 .ls-stat-l { font-size:.75rem; color:#7B6B99; margin-top:2px; }
-
 .tier-label {
   font-size:.75rem; font-weight:700; color:#7B6B99;
   text-transform:uppercase; letter-spacing:.8px;
@@ -159,7 +121,6 @@ body {
 }
 .tier-label:first-of-type { border-top:none; margin-top:0; padding-top:0; }
 .tier-btns { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.2rem; }
-
 .lvl-btn {
   width:56px; height:56px; border-radius:12px; border:2px solid;
   font-family:Calibri,sans-serif; font-weight:800; font-size:.88rem;
@@ -173,14 +134,8 @@ body {
 .lvl-open:hover  { background:#fff; border-color:#7B2FBE; transform:scale(1.08); box-shadow:0 4px 14px rgba(123,47,190,0.2); }
 .lvl-lock  { background:#F5F5F5; border-color:#E0E0E0; color:#C0C0C0; cursor:not-allowed; }
 .lvl-stars { font-size:.5rem; line-height:1; }
-
-/* ============================
-   QUIZ SCREEN
-============================ */
 #quizScreen { background:#F3EEFF; }
 .quiz-wrap { max-width:660px; margin:0 auto; padding:1.5rem; width:100%; }
-
-/* timer bar */
 .timer-bar-wrap {
   height:8px; background:#D5C2F0; border-radius:4px;
   overflow:hidden; margin-bottom:1.2rem;
@@ -191,7 +146,6 @@ body {
   transition:width 1s linear, background .3s;
   width:100%;
 }
-
 .quiz-topbar {
   display:flex; align-items:center; justify-content:space-between;
   gap:.75rem; flex-wrap:wrap; margin-bottom:.8rem;
@@ -199,13 +153,9 @@ body {
 .q-meta    { font-size:.95rem; font-weight:700; color:#1a0533; }
 .q-score   { background:#EDE4FF; border:1.5px solid #D5C2F0; border-radius:20px; padding:4px 14px; font-weight:700; color:#7B2FBE; font-size:.88rem; }
 .q-timer-n { font-size:1.3rem; font-weight:800; color:#7B2FBE; min-width:36px; text-align:center; background:#fff; border:2px solid #D5C2F0; border-radius:10px; padding:2px 8px; }
-
-/* progress bar */
 .prog-outer { height:6px; background:#D5C2F0; border-radius:3px; overflow:hidden; }
 .prog-inner { height:100%; background:linear-gradient(90deg,#7B2FBE,#9B59E8); border-radius:3px; transition:width .4s; }
 .prog-label { display:flex; justify-content:space-between; font-size:.77rem; color:#7B6B99; margin-top:4px; margin-bottom:1rem; }
-
-/* lifelines */
 .lifelines { display:flex; gap:.6rem; margin-bottom:1.1rem; }
 .ll-btn {
   flex:1; background:#fff; border:2px solid #D5C2F0;
@@ -218,8 +168,6 @@ body {
 .ll-btn:hover:not(:disabled) { border-color:#7B2FBE; color:#7B2FBE; background:#EDE4FF; }
 .ll-btn:disabled,.ll-btn.used { opacity:.3; cursor:not-allowed; }
 .ll-icon { font-size:1.1rem; }
-
-/* question card */
 .q-card {
   background:#fff; border:2px solid #D5C2F0;
   border-radius:18px; padding:1.5rem; margin-bottom:1.1rem;
@@ -228,8 +176,6 @@ body {
 .q-cat  { display:inline-block; background:#7B2FBE; color:#fff; border-radius:20px; padding:2px 12px; font-size:.72rem; font-weight:700; margin-bottom:.7rem; }
 .q-num  { font-size:.75rem; color:#7B6B99; font-weight:700; margin-bottom:.35rem; }
 .q-text { font-size:1.1rem; font-weight:700; line-height:1.55; color:#1a0533; }
-
-/* options */
 .opts { display:flex; flex-direction:column; gap:.6rem; }
 .opt-btn {
   background:#fff; border:2px solid #D5C2F0;
@@ -253,8 +199,6 @@ body {
 .opt-btn.correct .opt-ltr { background:#34D399; border-color:#34D399; color:#fff; }
 .opt-btn.wrong   .opt-ltr { background:#FCA5A5; border-color:#FCA5A5; color:#fff; }
 .opt-btn.reveal  .opt-ltr { background:#86EFAC; border-color:#86EFAC; color:#166534; }
-
-/* feedback strip */
 .feedback {
   border-radius:12px; padding:.75rem 1.1rem;
   display:flex; align-items:center; gap:.6rem;
@@ -264,10 +208,6 @@ body {
 .feedback.show { opacity:1; }
 .feedback.correct { background:#ECFDF5; border:2px solid #34D399; color:#065F46; }
 .feedback.wrong   { background:#FEF2F2; border:2px solid #FCA5A5; color:#991B1B; }
-
-/* ============================
-   RESULTS SCREEN
-============================ */
 #resultsScreen { background:#F3EEFF; align-items:center; justify-content:center; padding:2rem; }
 .results-card {
   background:#fff; border:2px solid #D5C2F0;
@@ -297,13 +237,8 @@ body {
 .btn-nxt:hover { background:#9B59E8; border-color:#9B59E8; }
 .btn-hub     { background:#fff; border-color:#D5C2F0; color:#7B6B99; }
 .btn-hub:hover { border-color:#7B2FBE; color:#7B2FBE; }
-
-/* ============================
-   SNAKE SCREEN
-============================ */
 #snakeScreen { background:#F3EEFF; }
 .snake-body { display:flex; flex-direction:column; align-items:center; padding:1.2rem; gap:.9rem; }
-
 .game-stats-bar {
   background:#fff; border:2px solid #D5C2F0; border-radius:14px;
   padding:.75rem 1.5rem; display:flex; gap:2rem; align-items:center;
@@ -311,8 +246,6 @@ body {
 }
 .gs-val { font-size:1.3rem; font-weight:800; color:#7B2FBE; }
 .gs-lbl { font-size:.72rem; color:#7B6B99; }
-
-/* Crypto term popup */
 .crypto-learn {
   background:#fff; border:2px solid #7B2FBE;
   border-radius:14px; padding:.85rem 1.2rem;
@@ -329,8 +262,6 @@ body {
 @keyframes popbadge { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
 .learn-term { font-size:1rem; font-weight:800; color:#7B2FBE; margin-bottom:.22rem; }
 .learn-def  { font-size:.87rem; color:#7B6B99; line-height:1.5; }
-
-/* Canvas wrapper */
 .snake-canvas-wrap { position:relative; }
 #snakeCanvas {
   border:3px solid #D5C2F0; border-radius:16px;
@@ -346,8 +277,6 @@ body {
 }
 .snake-overlay h2 { font-size:1.6rem; font-weight:800; color:#7B2FBE; }
 .snake-overlay p  { color:#7B6B99; font-size:.95rem; max-width:260px; }
-
-/* D-pad */
 .dpad { display:grid; grid-template-columns:1fr 1fr 1fr; gap:5px; max-width:175px; }
 .dpad-btn {
   width:52px; height:52px;
@@ -359,7 +288,6 @@ body {
 .dpad-btn:active { transform:scale(.92); background:#9B59E8; }
 .dpad-empty { background:transparent; pointer-events:none; }
 .dpad-center { background:#EDE4FF; color:#7B2FBE; font-size:1rem; font-weight:700; }
-
 .game-start-btn {
   background:#7B2FBE; color:#fff;
   border:none; border-radius:11px; padding:.7rem 2rem;
@@ -367,10 +295,6 @@ body {
   cursor:pointer; transition:background .2s;
 }
 .game-start-btn:hover { background:#9B59E8; }
-
-/* ============================
-   BILLIARD SCREEN
-============================ */
 #billiardScreen { background:#F3EEFF; }
 .billiard-body { display:flex; flex-direction:column; align-items:center; padding:1.2rem; gap:.9rem; }
 #billiardCanvas {
@@ -384,10 +308,6 @@ body {
   font-size:.84rem; color:#7B6B99; text-align:center;
   max-width:680px; width:100%;
 }
-
-/* ============================
-   TOAST
-============================ */
 .toast {
   position:fixed; bottom:1.5rem; right:1.5rem;
   background:#7B2FBE; color:#fff;
@@ -397,11 +317,8 @@ body {
   max-width:270px; box-shadow:0 8px 24px rgba(123,47,190,0.25);
 }
 .toast.show { transform:translateY(0); }
-
-/* confetti */
 .conf { position:fixed; pointer-events:none; z-index:998; border-radius:3px; animation:cfall 3s ease-in forwards; }
 @keyframes cfall { 0%{opacity:1;transform:translateY(-5px) rotate(0deg)} 100%{opacity:0;transform:translateY(100vh) rotate(480deg)} }
-
 @media(max-width:600px){
   .games-grid { grid-template-columns:1fr; }
   .res-btns { flex-direction:column; }
@@ -413,14 +330,10 @@ body {
 
 <div class="toast" id="toast"></div>
 
-<!-- ===================================================
-     HUB
-=================================================== -->
 <div class="screen active" id="hub">
   <nav class="navbar">
     <div class="nav-left" onclick="showHub()">
       <div class="nav-icon">
-        <!-- Monad logo shape SVG -->
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <path d="M50 5 C30 5 5 30 5 50 C5 70 30 95 50 95 C70 95 95 70 95 50 C95 30 70 5 50 5 Z M50 25 C62 25 75 38 75 50 C75 62 62 75 50 75 C38 75 25 62 25 50 C25 38 38 25 50 25 Z" fill="#fff"/>
         </svg>
@@ -443,7 +356,6 @@ body {
   <div class="hub-content">
     <div class="section-label">Choose Your Game</div>
     <div class="games-grid">
-
       <div class="game-card" onclick="showLevelSelect()">
         <div class="card-top">
           <div class="card-emoji">🧠</div>
@@ -494,15 +406,10 @@ body {
         <div class="card-desc">Real-time 1v1 quiz battles. Answer faster than your opponent. Winner takes the crown!</div>
         <button class="play-btn grey" disabled>Coming Soon</button>
       </div>
-
     </div>
   </div>
 </div>
 
-
-<!-- ===================================================
-     LEVEL SELECT
-=================================================== -->
 <div class="screen" id="levelSelect">
   <nav class="navbar">
     <div class="nav-left" onclick="showHub()">
@@ -528,10 +435,6 @@ body {
   </div>
 </div>
 
-
-<!-- ===================================================
-     QUIZ SCREEN
-=================================================== -->
 <div class="screen" id="quizScreen">
   <nav class="navbar">
     <div class="nav-left" onclick="quitQuiz()">
@@ -541,52 +444,35 @@ body {
     <div class="nav-xp">⭐ <span id="q-nav-xp">0</span> XP</div>
   </nav>
   <div class="quiz-wrap">
-    <!-- top bar -->
     <div class="quiz-topbar">
       <div class="q-meta">Level <strong id="q-lvl-lbl">1</strong></div>
       <div class="q-score">Score: <span id="q-score-val">0</span></div>
       <div class="q-timer-n" id="q-timer-n">20</div>
       <button class="back-btn" onclick="quitQuiz()">✕ Quit</button>
     </div>
-
-    <!-- TIMER BAR -->
     <div class="timer-bar-wrap"><div class="timer-bar-fill" id="q-tbar"></div></div>
-
-    <!-- progress -->
     <div class="prog-outer"><div class="prog-inner" id="q-prog" style="width:0%"></div></div>
     <div class="prog-label">
       <span>Question <span id="q-curr">1</span> / 10</span>
       <span id="q-streak-lbl" style="color:#7B2FBE;font-weight:700"></span>
     </div>
-
-    <!-- lifelines -->
     <div class="lifelines">
       <button class="ll-btn" id="ll-5050" onclick="use5050()"><span class="ll-icon">✂️</span><span>50/50</span></button>
       <button class="ll-btn" id="ll-skip"  onclick="useSkip()"><span class="ll-icon">⏭</span><span>Skip</span></button>
       <button class="ll-btn" id="ll-hint"  onclick="useHint()"><span class="ll-icon">💡</span><span>Reveal</span></button>
     </div>
-
-    <!-- question card -->
     <div class="q-card">
       <span class="q-cat" id="q-cat">Bitcoin</span>
       <div class="q-num" id="q-num">QUESTION 01 / 10</div>
       <div class="q-text" id="q-text">Loading...</div>
     </div>
-
-    <!-- options -->
     <div class="opts" id="opts-list"></div>
-
-    <!-- feedback (auto-clears) -->
     <div class="feedback" id="feedback">
       <span id="fb-icon">✓</span> <span id="fb-txt">Correct!</span>
     </div>
   </div>
 </div>
 
-
-<!-- ===================================================
-     RESULTS SCREEN
-=================================================== -->
 <div class="screen" id="resultsScreen">
   <nav class="navbar">
     <div class="nav-left" onclick="showHub()">
@@ -611,10 +497,6 @@ body {
   </div>
 </div>
 
-
-<!-- ===================================================
-     SNAKE SCREEN
-=================================================== -->
 <div class="screen" id="snakeScreen">
   <nav class="navbar">
     <div class="nav-left" onclick="stopSnake();showHub()">
@@ -637,14 +519,11 @@ body {
       <div><div class="gs-val" id="sn-length">3</div><div class="gs-lbl">Length</div></div>
       <div><div class="gs-val" id="sn-speed-lbl">1</div><div class="gs-lbl">Speed Level</div></div>
     </div>
-
-    <!-- crypto term box -->
     <div class="crypto-learn" id="learn-box">
       <div class="learn-badge" id="learn-badge" style="display:none">✨ NEW TERM!</div>
       <div class="learn-term" id="learn-term">Welcome to Monad Snake!</div>
       <div class="learn-def"  id="learn-def">Eat the MON tokens to grow your snake and learn crypto terms. Use arrow keys or the buttons below.</div>
     </div>
-
     <div class="snake-canvas-wrap">
       <canvas id="snakeCanvas" width="480" height="480"></canvas>
       <div class="snake-overlay" id="snake-overlay">
@@ -654,8 +533,6 @@ body {
         <button class="game-start-btn" onclick="startSnake()">▶ Start Game</button>
       </div>
     </div>
-
-    <!-- D-pad -->
     <div class="dpad">
       <div class="dpad-btn dpad-empty"></div>
       <button class="dpad-btn" onclick="snDir(0,-1)">▲</button>
@@ -671,10 +548,6 @@ body {
   </div>
 </div>
 
-
-<!-- ===================================================
-     BILLIARD SCREEN
-=================================================== -->
 <div class="screen" id="billiardScreen">
   <nav class="navbar">
     <div class="nav-left" onclick="stopBilliard();showHub()">
@@ -703,11 +576,7 @@ body {
   </div>
 </div>
 
-
 <script>
-// =====================================================
-//  GLOBAL STATE
-// =====================================================
 let G = { xp:0, levels:{}, snBest:0, blBest:0 };
 try { const s=localStorage.getItem('monadArcade3'); if(s) G={...G,...JSON.parse(s)}; } catch(e){}
 function saveG(){ try{localStorage.setItem('monadArcade3',JSON.stringify(G));}catch(e){} }
@@ -719,9 +588,6 @@ function syncXP(){
   });
 }
 
-// =====================================================
-//  NAVIGATION
-// =====================================================
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -738,12 +604,7 @@ function toast(msg){
   setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-// =====================================================
-//  QUESTION BANK — 1000 questions (100 levels × 10)
-// =====================================================
-// q=question, o=options array, a=correct index (0-3), cat=category
 const QB = [
-/* LEVEL 1 — Easy Bitcoin basics */
 {q:"Who created Bitcoin?",o:["Vitalik Buterin","Satoshi Nakamoto","Charlie Lee","Nick Szabo"],a:1,cat:"Bitcoin"},
 {q:"What is Bitcoin's maximum supply?",o:["100 million","42 million","21 million","Unlimited"],a:2,cat:"Bitcoin"},
 {q:"What does BTC stand for?",o:["Blockchain Token Currency","Bitcoin","Better Trading Coin","Binary Coin"],a:1,cat:"Bitcoin"},
@@ -754,7 +615,6 @@ const QB = [
 {q:"Bitcoin uses which consensus mechanism?",o:["Proof of Stake","Proof of Authority","Proof of Work","Delegated PoS"],a:2,cat:"Bitcoin"},
 {q:"Which country was first to adopt Bitcoin as legal tender?",o:["Panama","Venezuela","El Salvador","Paraguay"],a:2,cat:"Bitcoin"},
 {q:"What is Bitcoin's ticker symbol?",o:["BTX","BCH","BTC","XBT"],a:2,cat:"Bitcoin"},
-/* LEVEL 2 — Easy Ethereum basics */
 {q:"Who founded Ethereum?",o:["Satoshi Nakamoto","Charlie Lee","Vitalik Buterin","Gavin Wood"],a:2,cat:"Ethereum"},
 {q:"What is Ethereum's native currency?",o:["Bitcoin","Ether (ETH)","ERC-20","Gwei"],a:1,cat:"Ethereum"},
 {q:"What is a 'smart contract'?",o:["A legal document","Self-executing code on the blockchain","A type of wallet","A mining contract"],a:1,cat:"Ethereum"},
@@ -765,7 +625,6 @@ const QB = [
 {q:"What is a dApp?",o:["A mobile app by Ethereum Foundation","A decentralized application running on smart contracts","A type of wallet","An extension"],a:1,cat:"Ethereum"},
 {q:"What did The Merge change in Ethereum?",o:["Added NFT support","Switched from Proof of Work to Proof of Stake","Increased block size","Launched ETH2 tokens"],a:1,cat:"Ethereum"},
 {q:"What is GWEI?",o:["A blockchain","A denomination of ETH (1 ETH = 1,000,000,000 GWEI)","Gas Weight Index","An exchange"],a:1,cat:"Ethereum"},
-/* LEVEL 3 — Easy Crypto basics */
 {q:"What is a blockchain?",o:["A type of bank","A distributed ledger secured by cryptography","A programming language","A cloud service"],a:1,cat:"Basics"},
 {q:"What is a 'seed phrase'?",o:["A farming analogy","12-24 words to recover your crypto wallet","A smart contract parameter","A mining config"],a:1,cat:"Basics"},
 {q:"What does DeFi stand for?",o:["Digital Finance","Decentralized Finance","Defined Finance","Derivative Finance"],a:1,cat:"DeFi"},
@@ -776,112 +635,39 @@ const QB = [
 {q:"What is an airdrop in crypto?",o:["Dropping hardware from a plane","Free token distribution to wallets","A token sale","A blockchain update"],a:1,cat:"Basics"},
 {q:"What is a 'rug pull'?",o:["A type of smart contract","Devs abandoning a project and taking investor funds","A governance attack","A mining pool exit"],a:1,cat:"Culture"},
 {q:"What is a 'whale' in crypto?",o:["An ocean NFT","A large holder who can move the market","A large mining pool","A massive DeFi protocol"],a:1,cat:"Culture"},
-/* LEVEL 4 */
 {q:"What is Solana's native token?",o:["ETH","SOL","ADA","AVAX"],a:1,cat:"Solana"},
-{q:"What is Dogecoin's ticker symbol?",o:["DOG","DGCN","DOGE","DGE"],a:2,cat:"Altcoins"},
-{q:"What is Cardano's ticker?",o:["CAR","CDA","ADA","CDN"],a:2,cat:"Altcoins"},
-{q:"What is Polkadot's ticker?",o:["POLY","POK","DOT","PKD"],a:2,cat:"Altcoins"},
 {q:"What is market capitalisation?",o:["Total trading volume","Price × circulating supply","Maximum supply × price","Exchange reserve"],a:1,cat:"Markets"},
 {q:"What is FUD in crypto?",o:["Fear Uncertainty Doubt — negative market sentiment","Financial Utility Data","Fund Utilization Dashboard","Fast User Distribution"],a:0,cat:"Culture"},
 {q:"What is a bull market?",o:["A market with bull NFTs","A prolonged period of rising prices and positive sentiment","A high-fee trading period","A very fast market"],a:1,cat:"Markets"},
 {q:"What is a bear market?",o:["A market with bear NFTs","A prolonged period of falling prices","A slow market","A low-fee period"],a:1,cat:"Markets"},
 {q:"What is a DEX?",o:["Government exchange","A decentralized exchange where trading happens via smart contracts","A peer-to-peer lending platform","An exchange with no fees"],a:1,cat:"DeFi"},
 {q:"What is staking in crypto?",o:["Mining cryptocurrency","Locking tokens to help secure a network and earn rewards","Lending tokens","A trading strategy"],a:1,cat:"Basics"},
-/* LEVEL 5 */
 {q:"What is a cold wallet?",o:["A wallet used in cold weather","An offline wallet for better security","A wallet with low balance","An exchange wallet"],a:1,cat:"Basics"},
 {q:"What is a hot wallet?",o:["A wallet for hot climates","A wallet connected to the internet — convenient but less secure","An exchange wallet","A DeFi wallet"],a:1,cat:"Basics"},
 {q:"What is USDC?",o:["US Dollar Crypto by the Fed","USD Coin — a USD-pegged stablecoin issued by Circle","A decentralized stablecoin","A Bitcoin sidechain token"],a:1,cat:"Stablecoins"},
-{q:"What is Binance's native token?",o:["BIN","BNB","BAL","BCH"],a:1,cat:"Altcoins"},
 {q:"What is 'minting' an NFT?",o:["Creating physical coins","Publishing a new NFT to the blockchain for the first time","Buying on secondary market","Staking an NFT"],a:1,cat:"NFTs"},
-{q:"What is OpenSea?",o:["A maritime company","The largest NFT marketplace supporting multiple blockchains","A Solana-only platform","A DeFi protocol"],a:1,cat:"NFTs"},
 {q:"What is diamond hands?",o:["A gem NFT","Holding crypto through volatility without selling","A wallet type","A staking reward"],a:1,cat:"Culture"},
 {q:"What is paper hands?",o:["A paper wallet","Selling crypto too early out of fear","A testnet wallet","A staking penalty"],a:1,cat:"Culture"},
 {q:"What does GM mean in Web3 culture?",o:["General Manager","Good Morning — a common positive greeting in crypto communities","Genesis Minting","Governance Meeting"],a:1,cat:"Culture"},
 {q:"What is a 'block explorer'?",o:["A mining tool","A tool to view blockchain transactions and data publicly","A wallet","A consensus mechanism"],a:1,cat:"Basics"},
-/* LEVEL 6 */
 {q:"What is Uniswap?",o:["A centralized exchange","A decentralized exchange using an automated market maker (AMM)","An Ethereum wallet","A layer-2 solution"],a:1,cat:"DeFi"},
 {q:"What is a liquidity pool in DeFi?",o:["A mining pool","A pool of tokens locked in a smart contract to facilitate trading","A validator set","An exchange reserve fund"],a:1,cat:"DeFi"},
-{q:"What is Aave?",o:["A privacy coin","A decentralized lending and borrowing protocol on Ethereum","An Ethereum scaling solution","A stablecoin"],a:1,cat:"DeFi"},
 {q:"What is yield farming?",o:["Mining cryptocurrency","Earning rewards by providing liquidity or staking in DeFi protocols","Growing digital assets literally","A PoW variant"],a:1,cat:"DeFi"},
-{q:"What is impermanent loss?",o:["Losing tokens to a hack","Temporary loss experienced by liquidity providers due to price divergence","A fee paid to validators","A slashing penalty"],a:1,cat:"DeFi"},
 {q:"What is the ENS?",o:["A new consensus protocol","A decentralized domain name service mapping names to ETH addresses","An Ethereum node software","An NFT marketplace"],a:1,cat:"Ethereum"},
 {q:"What is ERC-721?",o:["A standard for fungible tokens","A standard for non-fungible tokens (NFTs)","A DeFi standard","A validator standard"],a:1,cat:"NFTs"},
-{q:"What is WETH?",o:["A privacy version of ETH","An ERC-20 compatible version of ETH for DeFi protocols","A staked ETH token","A layer-2 token"],a:1,cat:"Ethereum"},
-{q:"What is MakerDAO/DAI?",o:["A centralized stablecoin","A decentralized protocol creating DAI backed by crypto collateral","An ETH validator","A DEX protocol"],a:1,cat:"DeFi"},
 {q:"What is a flash loan?",o:["A quick bank loan","An uncollateralized loan that must be repaid within a single transaction","A high-speed transfer","A microfinance tool"],a:1,cat:"DeFi"},
-/* LEVEL 7 */
-{q:"What is the Bored Ape Yacht Club (BAYC)?",o:["A real yacht club","A famous NFT collection featuring cartoon apes with various traits","A DeFi protocol","A Solana NFT collection"],a:1,cat:"NFTs"},
-{q:"What is CryptoPunks?",o:["A hacker group","One of the first NFT collections — 10,000 pixel art characters on Ethereum","A DeFi protocol","A Bitcoin NFT"],a:1,cat:"NFTs"},
-{q:"What is token gating?",o:["Locking tokens","Restricting access to content or events based on NFT or token ownership","A transaction fee","A validator gate"],a:1,cat:"NFTs"},
-{q:"What is Axie Infinity?",o:["A DeFi protocol","A play-to-earn game where players collect, breed, and battle NFT creatures","A Solana NFT collection","A Bitcoin game"],a:1,cat:"GameFi"},
-{q:"What is play-to-earn (P2E)?",o:["Free gaming","A gaming model where players earn cryptocurrency or NFTs by playing","A subscription service","A developer income model"],a:1,cat:"GameFi"},
-{q:"What is GameFi?",o:["Gaming finance for developers","The combination of gaming and DeFi — earning crypto through gameplay","A game development framework","A gaming exchange"],a:1,cat:"GameFi"},
-{q:"What is a Layer 2 solution?",o:["The second version of a blockchain","A protocol built on top of a Layer 1 to improve scalability","A sidechain","A testnet"],a:1,cat:"L2s"},
-{q:"What is Arbitrum?",o:["An Ethereum competitor","An Ethereum layer-2 using optimistic rollups","A Solana layer-2","A standalone chain"],a:1,cat:"L2s"},
-{q:"What is Base blockchain?",o:["A music platform","An Ethereum layer-2 built by Coinbase on the OP Stack","A Bitcoin layer-2","A Solana sidechain"],a:1,cat:"L2s"},
-{q:"What is zkSync?",o:["A Solana scaling solution","An Ethereum layer-2 using ZK-rollup technology","A privacy coin","A bridge"],a:1,cat:"L2s"},
-/* LEVEL 8 */
 {q:"What is a DAO?",o:["A government agency","An organization governed by smart contracts and token holders without central leadership","A blockchain type","A lending protocol"],a:1,cat:"Web3"},
 {q:"What is Web3?",o:["The third version of a website","A vision of a decentralized internet built on blockchain technology","A web browser","A development framework"],a:1,cat:"Web3"},
 {q:"What is liquid staking?",o:["Accidentally liquid assets","Staking that issues a liquid token representing your staked position for use in DeFi","Staking on a DEX","Instant unstaking"],a:1,cat:"DeFi"},
-{q:"What is Lido Finance?",o:["A DeFi lending protocol","The largest liquid staking protocol primarily for ETH","A Solana DEX","A stablecoin protocol"],a:1,cat:"DeFi"},
 {q:"What is Chainlink (LINK)?",o:["A privacy coin","A decentralized oracle network bringing real-world data on-chain","An Ethereum clone","A layer-2 token"],a:1,cat:"DeFi"},
 {q:"What is an oracle in blockchain?",o:["A fortune-telling smart contract","A service that brings off-chain real-world data onto the blockchain","A consensus mechanism","A mining node"],a:1,cat:"DeFi"},
-{q:"What is RWA in crypto?",o:["Real World Algorithm","Real World Assets — tokenized versions of real-world assets like real estate or bonds","Regulated Wallet Assets","Random Wallet Address"],a:1,cat:"Web3"},
-{q:"What is SocialFi?",o:["Social media finance","Integrating social media with DeFi — monetizing social interactions with tokens","A social token","A content moderation DAO"],a:1,cat:"Web3"},
 {q:"What is a bridge in blockchain?",o:["Physical infrastructure","A protocol enabling asset transfers between different blockchains","A layer-2 solution","A validator node"],a:1,cat:"Basics"},
-{q:"What is the metaverse in Web3?",o:["Just Facebook's product","Persistent virtual worlds where users interact, own assets, and transact using crypto","A VR headset software","A gaming platform"],a:1,cat:"Web3"},
-/* LEVEL 9 */
 {q:"What is Proof of Stake (PoS)?",o:["Mining with hardware","Validators stake cryptocurrency as collateral to validate transactions","Staking physical assets","A tokenomics model"],a:1,cat:"Basics"},
 {q:"What is Proof of Work (PoW)?",o:["Validators stake tokens","Miners solve computationally hard puzzles to earn the right to add blocks","A governance model","A staking method"],a:1,cat:"Basics"},
 {q:"What is a private key?",o:["A public address","A secret cryptographic key that proves ownership of your cryptocurrency","A password for an exchange","A mining license"],a:1,cat:"Basics"},
-{q:"What is a 'genesis block'?",o:["The most recent block","The very first block in a blockchain","A special governance block","A minting block"],a:1,cat:"Basics"},
 {q:"What is TVL in DeFi?",o:["Token Value Limit","Total Value Locked — the total crypto deposited in DeFi protocols","Trading Volume Level","Transaction Validation Ledger"],a:1,cat:"DeFi"},
-{q:"What is an ICO?",o:["A stock IPO equivalent","Fundraising where projects sell tokens to investors","An exchange listing","An airdrop event"],a:1,cat:"Basics"},
 {q:"What is tokenomics?",o:["Token technology","The economic model governing a token's supply, distribution, and utility","Token trading strategies","Token regulatory compliance"],a:1,cat:"Basics"},
 {q:"What is DCA (Dollar Cost Averaging)?",o:["A leveraged trading strategy","Investing a fixed amount at regular intervals regardless of price","A tax reporting method","A staking strategy"],a:1,cat:"Markets"},
-{q:"What is slippage in crypto trading?",o:["A transaction failure","The difference between expected and actual execution price","A wallet security flaw","A blockchain fork"],a:1,cat:"Markets"},
-{q:"What is IPFS used for in Web3?",o:["Satellite internet","A decentralized storage protocol for NFT metadata and Web3 content","A blockchain","A DNS alternative"],a:1,cat:"Dev"},
-/* LEVEL 10 */
-{q:"What is Polygon (MATIC/POL)?",o:["A standalone blockchain","A network of Ethereum-compatible scaling solutions and layer-2 chains","A Bitcoin sidechain","A DeFi protocol"],a:1,cat:"L2s"},
-{q:"What is a governance token?",o:["A government token","A token granting holders voting rights in a protocol's decision-making","A stablecoin","A validator reward"],a:1,cat:"DeFi"},
-{q:"What is Compound Finance?",o:["A chemistry dApp","A DeFi protocol where users lend and borrow crypto algorithmically","A DEX","A stablecoin protocol"],a:1,cat:"DeFi"},
-{q:"What is Curve Finance known for?",o:["General token trading","An AMM optimized for stablecoin trading with minimal slippage","A lending protocol","An oracle network"],a:1,cat:"DeFi"},
-{q:"What is Avalanche (AVAX)?",o:["A Bitcoin fork","A high-throughput blockchain using Avalanche consensus with subnets","A Solana layer-2","An Ethereum layer-2"],a:1,cat:"Altcoins"},
-{q:"What is Cosmos (ATOM)?",o:["A space-themed NFT","An ecosystem of interoperable blockchains connected via the IBC protocol","A privacy coin","A DeFi protocol"],a:1,cat:"Altcoins"},
-{q:"What is interoperability in blockchain?",o:["Internet compatibility","The ability of different blockchains to communicate and share assets/data","Smart contract compatibility","Mining coordination"],a:1,cat:"Basics"},
-{q:"What is a multisig wallet?",o:["A wallet with multiple currencies","A wallet requiring multiple signatures to authorize a transaction","A shared exchange account","A staking wallet"],a:1,cat:"Basics"},
-{q:"What is 'rekt' in crypto slang?",o:["A blockchain protocol","Suffering significant financial losses from a bad trade or hack","A consensus mechanism","A validator penalty"],a:1,cat:"Culture"},
-{q:"What does 'NGMI' mean in Web3?",o:["Next Generation Mining Index","Not Gonna Make It — expression about bad investment decisions","Non-Governance Minting Index","Next Governance Meeting"],a:1,cat:"Culture"},
-/* LEVELS 11-20: Medium — Solana */
-{q:"What is Proof of History (PoH) on Solana?",o:["A mining algorithm","A cryptographic clock proving the order of events without global consensus","A staking mechanism","A privacy protocol"],a:1,cat:"Solana"},
-{q:"What is Solana's theoretical maximum TPS?",o:["1,000","10,000","65,000+","500"],a:2,cat:"Solana"},
-{q:"What language is used to write Solana programs?",o:["Solidity","Rust","Python","Go"],a:1,cat:"Solana"},
-{q:"What is the Anchor framework on Solana?",o:["A Solana NFT tool","A framework for writing Solana programs in Rust with safety abstractions","A Solana wallet","A Solana DEX"],a:1,cat:"Solana"},
-{q:"What is Solana's block time?",o:["10 minutes","1 second","~400ms (sub-second)","2 seconds"],a:2,cat:"Solana"},
-{q:"What is Gulf Stream on Solana?",o:["A Solana DEX","Solana's mempool-less transaction forwarding protocol","A Solana layer-2","A governance system"],a:1,cat:"Solana"},
-{q:"What is Sealevel on Solana?",o:["An environmental initiative","Solana's parallel smart contract runtime","A consensus layer","A data availability layer"],a:1,cat:"Solana"},
-{q:"What is the Turbine protocol on Solana?",o:["A governance mechanism","A protocol breaking blocks into small packets for fast dissemination","A transaction engine","A validator incentive"],a:1,cat:"Solana"},
-{q:"What is the SPL token standard on Solana?",o:["Smart Protocol Layer","Solana Program Library — the standard for fungible tokens on Solana","Staking Protocol License","Solana Public Ledger"],a:1,cat:"Solana"},
-{q:"What is Raydium on Solana?",o:["A Solana validator","An AMM DEX built on Solana","A Solana bridge","A Solana stablecoin"],a:1,cat:"Solana"},
-{q:"What is the Phantom Wallet?",o:["A hardware wallet","A popular browser extension wallet for Solana","A validator client","A Solana NFT collection"],a:1,cat:"Solana"},
-{q:"What is Jupiter on Solana?",o:["A Solana layer-2","A leading DEX aggregator on Solana","A Solana NFT collection","Solana's governance platform"],a:1,cat:"Solana"},
-{q:"What is Marinade Finance?",o:["A food delivery dApp","A liquid staking protocol on Solana","A Solana DEX","A Solana bridge"],a:1,cat:"Solana"},
-{q:"What is the BONK token?",o:["A stablecoin","A Solana community meme coin airdropped to the community in Dec 2022","A governance token","A validator reward token"],a:1,cat:"Solana"},
-{q:"What is Pyth Network?",o:["A Solana game","A decentralized oracle network primarily serving the Solana ecosystem","A Solana DEX","A Solana stablecoin"],a:1,cat:"Solana"},
-{q:"What is 'rent' in Solana's account model?",o:["A dApp usage fee","A small SOL deposit required to keep an account alive on-chain","A validator fee","A gas fee equivalent"],a:1,cat:"Solana"},
-{q:"What is a Solana 'Program'?",o:["A governance vote","The Solana term for a smart contract","A validator reward","A network upgrade"],a:1,cat:"Solana"},
-{q:"What is Firedancer on Solana?",o:["A Solana NFT project","A new high-performance validator client for Solana by Jump Crypto","A DeFi protocol","A governance token"],a:1,cat:"Solana"},
-{q:"What happened to Wormhole bridge in Feb 2022?",o:["It launched successfully","A $320M exploit was carried out on the bridge","It merged with Solana","It moved to Ethereum"],a:1,cat:"Solana"},
-{q:"What is the Metaplex standard on Solana?",o:["A consensus protocol","The standard NFT protocol and infrastructure on Solana","A Solana DEX","A Solana bridge"],a:1,cat:"Solana"},
-/* LEVELS 21-30: Medium — Bitcoin Advanced + Monad intro */
-{q:"What is Bitcoin's halving?",o:["Bitcoin price halving","The block reward is cut by 50% every 210,000 blocks","A network upgrade","A mining pool split"],a:1,cat:"Bitcoin"},
-{q:"What is SegWit in Bitcoin?",o:["A new mining algorithm","Segregated Witness — fixes transaction malleability and increases effective capacity","A privacy feature","A layer-2 solution"],a:1,cat:"Bitcoin"},
-{q:"What is the Bitcoin Taproot upgrade about?",o:["Increasing block size","Improving privacy and smart contract efficiency on Bitcoin","Adding NFT support","Changing consensus"],a:1,cat:"Bitcoin"},
-{q:"What are Bitcoin Ordinals?",o:["A miner ranking system","A protocol for inscribing data on individual satoshis","A layer-2 solution","A governance system"],a:1,cat:"Bitcoin"},
-{q:"What is BRC-20?",o:["A Bitcoin mining standard","An experimental token standard on Bitcoin using Ordinals inscriptions","An exchange standard","A regulatory standard"],a:1,cat:"Bitcoin"},
-{q:"What is the Bitcoin Lightning Network?",o:["A weather forecasting app","A Bitcoin layer-2 enabling fast, cheap off-chain payments","A mining network","An exchange network"],a:1,cat:"Bitcoin"},
-{q:"What is a Bitcoin UTXO?",o:["Unspent Transaction Output — the units of BTC that haven't been spent yet","A mining reward","A wallet address","A block hash"],a:0,cat:"Bitcoin"},
 {q:"What is Monad?",o:["A Bitcoin layer-2","A high-performance EVM-compatible Layer 1 blockchain","An Ethereum layer-2 rollup","A cross-chain bridge protocol"],a:1,cat:"Monad"},
 {q:"Who founded Monad?",o:["Vitalik Buterin","Keone Hon","Anatoly Yakovenko","Do Kwon"],a:1,cat:"Monad"},
 {q:"What is Monad's native token?",o:["MON","MONAD","MND","MNAD"],a:0,cat:"Monad"},
@@ -889,111 +675,36 @@ const QB = [
 {q:"What makes Monad unique vs standard EVM chains?",o:["Replaces the EVM entirely","EVM-compatible but executes transactions in parallel, not sequentially","Adds new EVM opcodes","Uses a completely different VM"],a:1,cat:"Monad"},
 {q:"What is MonadBFT?",o:["A token standard","Monad's pipelined BFT consensus mechanism","A fee structure","A bridge protocol"],a:1,cat:"Monad"},
 {q:"What is Monad's block time target?",o:["10 minutes","500ms (half a second)","1 second","2 seconds"],a:1,cat:"Monad"},
-{q:"What is MonadDB?",o:["A public database","A custom high-performance database for Monad's state storage","A standard SQL database","A cloud database"],a:1,cat:"Monad"},
-{q:"How much did Monad raise in its Series A?",o:["$10M","$225M","$50M","$500M"],a:1,cat:"Monad"},
-{q:"What background did Monad's founder Keone Hon come from?",o:["Academic research","High-frequency trading (Jane Street)","Ethereum core development","Bitcoin mining"],a:1,cat:"Monad"},
 {q:"What is 'parallel execution' in Monad?",o:["Running multiple blockchains at once","Executing multiple non-conflicting transactions simultaneously in a block","Parallel mining pools","Parallel validator sets"],a:1,cat:"Monad"},
-{q:"What is 'deferred execution' in Monad?",o:["Delaying transactions indefinitely","Separating consensus from execution to increase throughput","Scheduling smart contracts for future blocks","Delaying block production"],a:1,cat:"Monad"},
-{q:"What chain ID does Monad testnet use?",o:["1","10143","42161","137"],a:1,cat:"Monad"},
-/* LEVELS 31-40: Medium-Hard — Ethereum + DeFi advanced */
 {q:"What is EIP-1559?",o:["The Ethereum whitepaper","An upgrade that changed the fee mechanism and introduced ETH burning","The DAO hack patch","The Merge proposal"],a:1,cat:"Ethereum"},
 {q:"How much ETH must be staked to become a validator?",o:["1 ETH","16 ETH","32 ETH","100 ETH"],a:2,cat:"Ethereum"},
-{q:"What is 'slashing' in Ethereum staking?",o:["Reducing gas fees","Penalizing validators for malicious behavior by destroying part of their stake","Cutting block rewards","Limiting transaction throughput"],a:1,cat:"Ethereum"},
 {q:"What is MEV in Ethereum?",o:["Maximum ETH Value","Maximal Extractable Value — value extracted by reordering or inserting transactions","Mining Efficiency Value","Market Exchange Volume"],a:1,cat:"Ethereum"},
-{q:"What is 'front-running' in Ethereum?",o:["Being the first miner","Exploiting knowledge of pending transactions to insert your own tx first","A type of flash loan","A consensus attack"],a:1,cat:"Ethereum"},
 {q:"What is the Ethereum Virtual Machine (EVM)?",o:["A physical computer","A decentralized computing environment that runs smart contracts","An ETH mining rig","A virtual wallet"],a:1,cat:"Ethereum"},
-{q:"What is the Beacon Chain?",o:["Ethereum's layer-2","The Proof of Stake chain that was later merged with Ethereum mainnet","A cross-chain bridge","Ethereum's testnet"],a:1,cat:"Ethereum"},
 {q:"What is stETH?",o:["Permanently locked ETH","A liquid staking token representing ETH staked through Lido","ETH on a sidechain","Testnet ETH"],a:1,cat:"DeFi"},
-{q:"What is Yearn Finance?",o:["A longing-themed project","A DeFi yield aggregator that automatically moves funds to highest-yielding strategies","A DEX","A lending protocol"],a:1,cat:"DeFi"},
 {q:"What is an AMM (Automated Market Maker)?",o:["An AI trading bot","A protocol using liquidity pools and math formulas for trading instead of order books","A market analysis tool","A centralized order book"],a:1,cat:"DeFi"},
-{q:"What is EigenLayer?",o:["A layer-2 for Ethereum","A restaking protocol allowing ETH stakers to provide security to other protocols","A DEX aggregator","A stablecoin protocol"],a:1,cat:"DeFi"},
-{q:"What is 'restaking'?",o:["Staking again after unstaking","Using already-staked ETH to provide security to additional protocols via EigenLayer","A compound interest mechanism","A liquid staking upgrade"],a:1,cat:"DeFi"},
-{q:"What is Pendle Finance?",o:["A pendulum-themed project","A protocol for trading and hedging future yield by splitting assets into principal and yield tokens","A DEX","A lending protocol"],a:1,cat:"DeFi"},
-{q:"What is 'vote escrow' (ve) tokenomics?",o:["Locked voting boxes","Users lock tokens for longer periods to gain more governance power (e.g. veCRV)","A staking upgrade","A liquidity model"],a:1,cat:"DeFi"},
-{q:"What is Hyperliquid?",o:["A liquid staking protocol","A decentralized perpetual exchange known for its massive HYPE token community airdrop","An NFT marketplace","A Solana DEX"],a:1,cat:"DeFi"},
-{q:"What is Ethena (USDe)?",o:["A new blockchain","A synthetic dollar protocol generating yield through ETH staking and delta-neutral strategies","A centralized stablecoin","A DeFi lending protocol"],a:1,cat:"DeFi"},
-{q:"What is GMX?",o:["A crypto exchange","A decentralized perpetual and spot trading platform on Arbitrum and Avalanche","A Solana DEX","A stablecoin protocol"],a:1,cat:"DeFi"},
-{q:"What is 'TWAP' in DeFi?",o:["A real-time price","Time-Weighted Average Price — a manipulation-resistant price oracle method","A mining price","A staking price"],a:1,cat:"DeFi"},
-{q:"What is 'liquidation' in DeFi?",o:["Selling a company","When a borrower's collateral falls below the required ratio and is sold to repay the loan","Closing a wallet","Burning tokens"],a:1,cat:"DeFi"},
-{q:"What is 'concentrated liquidity' (Uniswap v3)?",o:["Pooling all funds together","LPs provide liquidity only within a specific price range for higher capital efficiency","A staking upgrade","A fee structure"],a:1,cat:"DeFi"},
-/* LEVELS 41-60: Hard — Dev, Security, Advanced */
 {q:"What is Hardhat used for?",o:["A mining helmet","A development environment for Ethereum smart contracts","A blockchain explorer","A wallet software"],a:1,cat:"Dev"},
-{q:"What is Foundry in Web3 dev?",o:["A steel factory","A fast Rust-based toolchain for Ethereum smart contract development and testing","A Solana framework","A DeFi protocol"],a:1,cat:"Dev"},
 {q:"What does ABI stand for in smart contracts?",o:["Asset Blockchain Interface","Application Binary Interface — defines how to interact with a smart contract","Automated Bot Integration","Address-Based ID"],a:1,cat:"Dev"},
-{q:"What is Remix IDE?",o:["A music platform","A web-based IDE for writing and deploying Solidity smart contracts","A Solana tool","An explorer"],a:1,cat:"Dev"},
 {q:"What is OpenZeppelin?",o:["An open-source OS","A library of audited, reusable smart contract templates for Ethereum","An ETH node client","A DeFi protocol"],a:1,cat:"Dev"},
-{q:"What is 'msg.sender' in Solidity?",o:["The message sender in a chat dApp","The address that called the current smart contract function","The validator address","Always the contract deployer"],a:1,cat:"Dev"},
-{q:"What does 'require()' do in Solidity?",o:["Imports modules","Validates a condition and reverts the transaction with an error message if false","Requires user input","Imports libraries"],a:1,cat:"Dev"},
-{q:"What is a 'mapping' in Solidity?",o:["A geographic map","A key-value store data type for efficient on-chain lookups","An array type","A loop structure"],a:1,cat:"Dev"},
-{q:"What is a 'modifier' in Solidity?",o:["A code editing tool","Reusable code that runs before or after a function to add conditions like onlyOwner","A token attribute","A keyword for loops"],a:1,cat:"Dev"},
 {q:"What is 'reentrancy' in smart contracts?",o:["A login bug","An exploit where an external contract recursively calls back into the vulnerable contract before the first call finishes","A front-running attack","A gas exploit"],a:1,cat:"Security"},
-{q:"What is a 'proxy contract' pattern?",o:["A cached contract","A pattern separating upgradeable logic from storage to allow contract upgrades","A private contract","A multi-sig contract"],a:1,cat:"Dev"},
-{q:"What is CREATE2 in Ethereum?",o:["A Solidity version number","An opcode allowing deterministic contract deployment to the same address across chains","A token standard","A consensus opcode"],a:1,cat:"Dev"},
-{q:"What is 'delegatecall' in Solidity?",o:["A call to a validator","A low-level call that executes another contract's code in the calling contract's storage context","A simple function call","A cross-chain call"],a:1,cat:"Dev"},
-{q:"What is ethers.js?",o:["A JavaScript game library","A JavaScript library for interacting with the Ethereum blockchain","A Solana SDK","A React component library"],a:1,cat:"Dev"},
-{q:"What is the Graph Protocol?",o:["A data visualization library","A decentralized indexing protocol for querying blockchain data with GraphQL","A blockchain graph database","An analytics tool"],a:1,cat:"Dev"},
-{q:"What is Wagmi in Web3 frontend dev?",o:["Just a meme phrase","A React hooks library for Ethereum simplifying wallet connection and contract interaction","A Solana framework","A blockchain scripting tool"],a:1,cat:"Dev"},
-{q:"What is viem in Web3 dev?",o:["A Solidity IDE","A TypeScript interface for Ethereum focused on performance and developer experience","A blockchain database","A wallet SDK"],a:1,cat:"Dev"},
 {q:"What is a 'sandwich attack' in DeFi?",o:["A food-themed NFT","Front-running and back-running a victim's trade to extract profit from price movement","A type of rug pull","A governance attack"],a:1,cat:"Security"},
-{q:"What is a 'governance attack' in DeFi?",o:["A government hack","Acquiring enough governance tokens to pass malicious proposals","A smart contract exploit","A 51% attack"],a:1,cat:"Security"},
 {q:"What is a 51% attack?",o:["When 51% of users vote for a fork","When a miner controls more than 50% of hash rate and can manipulate the chain","A wallet hack affecting 51% of users","A government ban"],a:1,cat:"Security"},
-{q:"What is 'fuzz testing' for smart contracts?",o:["Fuzzy logic testing","Testing with random and unexpected inputs to find edge cases and bugs","Manual code review","A deployment test"],a:1,cat:"Security"},
-{q:"What is a 'flash loan attack'?",o:["A quick loan scam","Using a flash loan to manipulate DeFi protocols within a single transaction for profit","A phishing attack","A 51% attack"],a:1,cat:"Security"},
-{q:"What is inline assembly in Solidity?",o:["A team meeting","Low-level EVM bytecode written inside Solidity using Yul for gas optimization","A Solidity module","A deployment script"],a:1,cat:"Dev"},
-{q:"What is 'contract verification' on Etherscan?",o:["A legal review","Publishing source code so users can verify the deployed bytecode matches it","A security audit","A token listing process"],a:1,cat:"Dev"},
-{q:"What is a 'calldata' data location in Solidity?",o:["Phone call data","Read-only input data passed to functions, cheaper than memory","Validator communication data","Block header data"],a:1,cat:"Dev"},
-{q:"What is 'storage' vs 'memory' in Solidity?",o:["Same thing","Storage is persistent on-chain; memory is temporary and only exists during the call","Storage is temporary","Memory is cheaper than storage"],a:1,cat:"Dev"},
-{q:"What is 'event logging' in smart contracts?",o:["Server log collection","Emitting events that are recorded in tx logs and can be listened to by frontends","A debugging tool","A governance mechanism"],a:1,cat:"Dev"},
-{q:"What is ABI encoding?",o:["An encryption method","The standard way of encoding function calls and arguments for EVM smart contract interaction","A compression algorithm","A storage optimization"],a:1,cat:"Dev"},
-{q:"What is Hardhat forking?",o:["A hardware fork","Running a local Ethereum node forked from mainnet state for realistic testing","A code fork","A blockchain fork"],a:1,cat:"Dev"},
-{q:"What is 'token vesting'?",o:["Token clothing","A schedule releasing tokens over time to founders/investors to prevent immediate selling","A token burn","A token airdrop"],a:1,cat:"DeFi"},
-/* LEVELS 61-80: Expert — Advanced Protocol Knowledge */
 {q:"What is EIP-4844 (Proto-Danksharding)?",o:["A wallet upgrade","Introducing 'blob' data transactions for much cheaper L2 data posting to Ethereum","A consensus change","A privacy upgrade"],a:1,cat:"Ethereum"},
 {q:"What is ERC-4337 (Account Abstraction)?",o:["A token standard","A standard enabling smart contract wallets and removing the need for EOAs","An NFT standard","A DeFi standard"],a:1,cat:"Ethereum"},
 {q:"What is a ZK-rollup vs Optimistic rollup difference?",o:["ZK uses fraud proofs, Optimistic uses validity proofs","ZK uses validity proofs (math-based); Optimistic uses fraud proofs with a challenge window","They are identical","ZK is slower to finality"],a:1,cat:"L2s"},
-{q:"What is 'Danksharding'?",o:["A meme upgrade","Ethereum's full sharding plan for massive data availability scaling","A DeFi protocol","An L2 system"],a:1,cat:"Ethereum"},
-{q:"What is 'Proposer-Builder Separation' (PBS)?",o:["A governance model","Separating the roles of block building and block proposing in Ethereum validators","A mining model","A staking model"],a:1,cat:"Ethereum"},
-{q:"What is EigenDA?",o:["A data analysis tool","EigenLayer's data availability layer providing cheap DA for rollups","A DEX","A wallet"],a:1,cat:"Advanced"},
 {q:"What is 'modular blockchain' architecture?",o:["A modular code pattern","Separating execution, settlement, consensus, and data availability into specialized layers","A single-purpose chain","A sidechain"],a:1,cat:"Advanced"},
-{q:"What is 'blob' data in Ethereum (EIP-4844)?",o:["A storage blob","Temporary data chunks for L2s to post transaction data cheaply vs calldata","A permanent record","NFT storage"],a:1,cat:"Ethereum"},
 {q:"What is Celestia?",o:["An astronomy token","A modular blockchain focused solely on data availability, not execution or settlement","A layer-2 of Ethereum","A DEX"],a:1,cat:"Advanced"},
-{q:"What is 'data availability sampling' (DAS)?",o:["Random data checks","A technique where light nodes verify data availability by randomly sampling blob data","A mining technique","A governance method"],a:1,cat:"Advanced"},
-{q:"What is a 'Verkle tree' in Ethereum?",o:["A German tree algorithm","A more efficient data structure replacing Merkle trees in Ethereum for smaller proofs","A consensus data structure","A mining data structure"],a:1,cat:"Advanced"},
 {q:"What is 'cross-program invocation' (CPI) on Solana?",o:["Calling multiple validators","A Solana program calling another program during its execution","A cross-chain call","A debugging feature"],a:1,cat:"Solana"},
 {q:"What is a Program Derived Address (PDA) on Solana?",o:["A miner address","A deterministically derived address that programs use to sign instructions without a private key","A user wallet","A validator address"],a:1,cat:"Solana"},
-{q:"What is 'compute units' on Solana?",o:["A mining unit","The measure of computational resources a Solana transaction uses (analogous to Ethereum gas)","A validator scoring metric","A staking unit"],a:1,cat:"Solana"},
-{q:"What is a compressed NFT (cNFT) on Solana?",o:["A low-resolution NFT","An NFT minted using account compression, reducing cost from ~$0.50 to fractions of a cent","A testnet NFT","A private NFT"],a:1,cat:"Solana"},
-{q:"What is 'epoch' in Solana?",o:["A historical period","A fixed time period (~2 days) after which validator rewards are distributed and leaders rotate","A governance term","A staking cycle"],a:1,cat:"Solana"},
-{q:"What is versioned transactions in Solana?",o:["Version control for code","A transaction format enabling address lookup tables to expand the 32-account limit per tx","A smart contract upgrade","A fee structure"],a:1,cat:"Solana"},
-{q:"What is account compression on Solana?",o:["File compression","A protocol for storing large amounts of on-chain state cheaply using concurrent Merkle trees","A wallet compression","A transaction batching method"],a:1,cat:"Solana"},
-{q:"What is Tower BFT on Solana?",o:["A tall building","Solana's Proof of History-based implementation of Practical Byzantine Fault Tolerance consensus","Nakamoto Consensus","Avalanche Consensus"],a:1,cat:"Solana"},
-{q:"What is Jito's MEV system on Solana?",o:["A food delivery dApp","An MEV-aware validator client and bundle system enabling prioritized transactions","A staking protocol","A DEX"],a:1,cat:"Solana"},
-/* LEVELS 81-100: Legend */
 {q:"What is 'optimistic parallel execution' in Monad?",o:["Skipping gas checks","Running transactions assuming no conflicts, then reverting and re-executing if conflicts occur","Optimistic rollup technology","Parallel mining"],a:1,cat:"Monad"},
 {q:"What is 'pipelining' in Monad's architecture?",o:["Gas optimization","Overlapping consensus phases so the network doesn't wait for one phase to finish before starting the next","Smart contract batching","Validator rotation"],a:1,cat:"Monad"},
 {q:"What Ethereum tools work on Monad without changes?",o:["None — all must be rewritten","Hardhat, Foundry, Ethers.js — all Ethereum-compatible tools work due to EVM equivalence","Only Hardhat","Only Foundry"],a:1,cat:"Monad"},
-{q:"What is 'async execution' in Monad?",o:["Delayed block production","Execution happening asynchronously from consensus to improve throughput","A smart contract pattern","A staking mechanism"],a:1,cat:"Monad"},
-{q:"How does Monad handle conflicting transactions in parallel execution?",o:["Ignores them","Detects conflicts and re-executes conflicting transactions serially","Rejects conflicting transactions","Batches them into the next block"],a:1,cat:"Monad"},
+{q:"What is ZK proof system 'SNARK' vs 'STARK'?",o:["They are the same","SNARKs need a trusted setup but have smaller proofs; STARKs need no trusted setup but proofs are larger","STARKs need trusted setup","SNARKs are always larger"],a:1,cat:"Advanced"},
+{q:"What is the sequencer in an optimistic rollup?",o:["A sorting algorithm","An entity ordering and batching transactions for the rollup before posting to L1","A validator","A block builder"],a:1,cat:"L2s"},
 {q:"What is MonadBFT's improvement over standard BFT?",o:["Better security","Lower latency and higher throughput through pipelined consensus stages","Better decentralization","Better storage efficiency"],a:1,cat:"Monad"},
 {q:"What is 'EVM-equivalent' vs 'EVM-compatible'?",o:["No practical difference","Equivalence means full bytecode-level compatibility; compatible may require contract changes","Equivalence is weaker","Compatibility is stronger"],a:1,cat:"Monad"},
-{q:"What is ZK proof system 'SNARK' vs 'STARK'?",o:["They are the same","SNARKs need a trusted setup but have smaller proofs; STARKs need no trusted setup but proofs are larger","STARKs need trusted setup","SNARKs are always larger"],a:1,cat:"Advanced"},
-{q:"What is 'validium'?",o:["A medication","A ZK-proof-based L2 that stores data off-chain for lower costs at the expense of data availability","An on-chain rollup","A plasma chain"],a:1,cat:"L2s"},
-{q:"What is 'volition' in ZK rollup design?",o:["A consensus choice","A hybrid design where users choose between on-chain or off-chain data availability per transaction","A governance model","A privacy feature"],a:1,cat:"L2s"},
-{q:"What is the sequencer in an optimistic rollup?",o:["A sorting algorithm","An entity ordering and batching transactions for the rollup before posting to L1","A validator","A block builder"],a:1,cat:"L2s"},
-{q:"What is the challenge period in optimistic rollups?",o:["A governance challenge","A time window (~7 days) where anyone can submit fraud proofs before L2 state is finalized","A mining competition","A token sale window"},a:1,cat:"L2s"},
-{q:"What is 'enshrined PBS' in Ethereum?",o:["A governance model","Proposer-Builder Separation built directly into the Ethereum protocol rather than as middleware","A mining model","A staking model"],a:1,cat:"Ethereum"},
-{q:"What is the ERC-4337 'paymaster'?",o:["Someone who pays miners","A contract that can sponsor gas fees for users enabling gasless transactions","A staking entity","A validator"],a:1,cat:"Ethereum"},
-{q:"What is EIP-712?",o:["Mining improvement proposal","A standard for typed structured data hashing and signing used in dApp signature requests","A token standard","A consensus change"],a:1,cat:"Ethereum"},
-{q:"What is the withdrawal queue in Ethereum staking?",o:["A DeFi queue","The rate-limited queue validators must enter to exit and unstake their ETH","A transaction backlog","A gas fee queue"],a:1,cat:"Ethereum"},
-{q:"What is a 'KZG commitment' in EIP-4844?",o:["A governance commitment","A polynomial commitment scheme used to verify blob data without revealing the full data","A mining commitment","A staking commitment"],a:1,cat:"Advanced"},
-{q:"What is Schnorr signature in Bitcoin Taproot?",o:["A German inventor","An efficient, privacy-enhancing signature scheme enabled by Taproot — smaller and aggregatable","A new hash function","A consensus upgrade"],a:1,cat:"Bitcoin"},
 {q:"What is an 'atomic swap' in blockchain?",o:["A nuclear-powered swap","Trustless cross-chain trading using hash time-locked contracts without an intermediary","A fast exchange trade","A mining pool swap"],a:1,cat:"Bitcoin"},
-{q:"What is the 'honest majority' assumption in PoS?",o:["Most users are honest","System is secure as long as over two-thirds of staked ETH is controlled by honest validators","Most miners are honest","Most nodes are honest"],a:1,cat:"Advanced"},
 ];
 
-// =====================================================
-//  LEVEL SELECT — build grid
-// =====================================================
 const TIERS = [
   {lbl:"⭐ Beginner — Levels 1-10",   s:1,  e:10},
   {lbl:"⭐⭐ Novice — Levels 11-20",   s:11, e:20},
@@ -1032,12 +743,12 @@ function buildLevels(){
     row.className = 'tier-btns';
     for(let lvl=tier.s; lvl<=tier.e; lvl++){
       const ld = G.levels[lvl];
-      const done = ld && ld.done;
+      const isDone = ld && ld.done;
       const locked = lvl > maxUnlocked;
       const btn = document.createElement('button');
-      btn.className = 'lvl-btn ' + (done ? 'lvl-done' : locked ? 'lvl-lock' : 'lvl-open');
+      btn.className = 'lvl-btn ' + (isDone ? 'lvl-done' : locked ? 'lvl-lock' : 'lvl-open');
       const stars = (ld&&ld.stars)||0;
-      btn.innerHTML = done
+      btn.innerHTML = isDone
         ? `<span>${lvl}</span><div class="lvl-stars">${'★'.repeat(stars)}${'☆'.repeat(3-stars)}</div>`
         : locked ? '🔒' : lvl;
       if(!locked) btn.onclick = ()=>startLevel(lvl);
@@ -1047,10 +758,7 @@ function buildLevels(){
   });
 }
 
-// =====================================================
-//  QUIZ SESSION
-// =====================================================
-let QS = {}; // quiz session
+let QS = {};
 
 function startLevel(lvl){
   const offset = (lvl-1)*10;
@@ -1060,13 +768,11 @@ function startLevel(lvl){
     answered:false, timer:null, timeLeft:20, times:[],
     ll:{f5050:true, skip:true, hint:true},
     autoTimer:null,
-    // slice 10 questions for this level
     qs: Array.from({length:10},(_,i)=>QB[(offset+i)%QB.length])
   };
   document.getElementById('q-lvl-lbl').textContent = lvl;
   document.getElementById('q-score-val').textContent = '0';
   document.getElementById('q-nav-xp').textContent = (G.xp||0).toLocaleString();
-  // reset lifelines
   ['ll-5050','ll-skip','ll-hint'].forEach(id=>{
     const el=document.getElementById(id);
     el.disabled=false; el.classList.remove('used');
@@ -1078,19 +784,14 @@ function startLevel(lvl){
 function renderQuestion(){
   const q = QS.qs[QS.cur];
   const num = QS.cur+1;
-
   document.getElementById('q-cat').textContent = q.cat;
   document.getElementById('q-num').textContent = `QUESTION ${String(num).padStart(2,'0')} / 10`;
   document.getElementById('q-text').textContent = q.q;
   document.getElementById('q-curr').textContent = num;
   document.getElementById('q-prog').style.width = `${(QS.cur/10)*100}%`;
   document.getElementById('q-streak-lbl').textContent = QS.streak>=2 ? `🔥 ${QS.streak} streak!` : '';
-
-  // Clear feedback
   const fb = document.getElementById('feedback');
   fb.className = 'feedback';
-
-  // Render options
   const list = document.getElementById('opts-list');
   list.innerHTML = '';
   ['A','B','C','D'].forEach((ltr,i)=>{
@@ -1101,7 +802,6 @@ function renderQuestion(){
     btn.dataset.i = i;
     list.appendChild(btn);
   });
-
   QS.answered = false;
   QS.timeLeft = 20;
   startQTimer();
@@ -1134,7 +834,6 @@ function timeoutQ(){
   QS.times.push(20);
   showFB(false,"⏰ Time's up!");
   revealCorrect();
-  // AUTO-ADVANCE after 1.5s
   clearTimeout(QS.autoTimer);
   QS.autoTimer = setTimeout(nextQ, 1500);
 }
@@ -1145,11 +844,9 @@ function pickAnswer(idx){
   clearInterval(QS.timer);
   const elapsed = Math.round((Date.now()-QS.startT)/1000);
   QS.times.push(elapsed);
-
   const q = QS.qs[QS.cur];
   const btns = document.querySelectorAll('.opt-btn');
   btns.forEach(b=>b.disabled=true);
-
   if(idx===q.a){
     btns[idx].classList.add('correct');
     const bonus = Math.floor((QS.timeLeft/20)*50);
@@ -1165,11 +862,8 @@ function pickAnswer(idx){
     showFB(false,'✗ Wrong answer!');
     revealCorrect();
   }
-
   document.getElementById('q-score-val').textContent = QS.score;
   document.getElementById('q-streak-lbl').textContent = QS.streak>=2 ? `🔥 ${QS.streak} streak!` : '';
-
-  // AUTO-ADVANCE after 1.2 seconds
   clearTimeout(QS.autoTimer);
   QS.autoTimer = setTimeout(nextQ, 1200);
 }
@@ -1187,7 +881,6 @@ function showFB(ok, msg){
   document.getElementById('fb-txt').textContent = msg;
 }
 
-// Lifelines
 function use5050(){
   if(!QS.ll.f5050||QS.answered) return;
   QS.ll.f5050=false;
@@ -1235,16 +928,12 @@ function quitQuiz(){
   showLevelSelect();
 }
 
-// =====================================================
-//  RESULTS
-// =====================================================
 function showResults(){
   clearInterval(QS.timer);
   clearTimeout(QS.autoTimer);
   const {lvl,score,correct,bestStreak,times} = QS;
   const passed = correct>=6;
   const stars = correct>=10?3:correct>=8?2:correct>=6?1:0;
-
   if(passed){
     G.levels[lvl]={
       done:true,
@@ -1255,7 +944,6 @@ function showResults(){
   const xpGained = passed ? correct*20+stars*50 : correct*5;
   G.xp=(G.xp||0)+xpGained;
   saveG(); syncXP();
-
   const emos=['😅','🥉','🥈','🏆'];
   const titles=['TRY AGAIN','LEVEL CLEAR!','GREAT JOB!','PERFECT!'];
   document.getElementById('res-emoji').textContent = passed?emos[stars]:'😅';
@@ -1267,8 +955,7 @@ function showResults(){
   document.getElementById('rs-cor').textContent = `${correct}/10`;
   const avgT = times.length?Math.round(times.reduce((a,b)=>a+b,0)/times.length):0;
   document.getElementById('rs-time').textContent = `${avgT}s`;
-  document.getElementById('rs-streak').textContent = bestStreak;
-
+  document.getElementById('rs-str').textContent = bestStreak;
   const btns=document.getElementById('res-btns');
   btns.innerHTML='';
   const retry=document.createElement('button');
@@ -1285,46 +972,31 @@ function showResults(){
   hub.className='btn-hub'; hub.textContent='🏠 Hub';
   hub.onclick=showHub;
   btns.appendChild(hub);
-
   showScreen('resultsScreen');
   if(passed&&stars>=2) spawnConfetti(28);
 }
 
-
-// =====================================================
-//  SNAKE GAME — full implementation
-// =====================================================
 const CRYPTO_TERMS = [
   {term:"Bitcoin (BTC)",def:"The first cryptocurrency, created by Satoshi Nakamoto in 2008. Limited to 21 million coins."},
   {term:"Blockchain",def:"A distributed ledger where records (blocks) are chained together using cryptography — immutable and decentralized."},
-  {term:"Wallet",def:"Software storing your private/public keys, letting you send and receive cryptocurrency."},
   {term:"DeFi",def:"Decentralized Finance — financial services (lending, trading, earning) built on blockchains without banks."},
   {term:"NFT",def:"Non-Fungible Token — a unique digital asset on a blockchain. Each one is one-of-a-kind."},
   {term:"Gas Fee",def:"A fee paid to compensate network validators for the computation needed to process a transaction."},
   {term:"Smart Contract",def:"Self-executing code on the blockchain. Once deployed, it runs automatically when conditions are met."},
   {term:"Staking",def:"Locking your tokens to help secure a Proof of Stake network. You earn rewards in return."},
   {term:"Private Key",def:"A secret cryptographic key that proves ownership of your crypto. Never share it — it controls your funds."},
-  {term:"Seed Phrase",def:"12-24 random words that back up your wallet. Anyone with these words controls your crypto."},
   {term:"HODL",def:"Crypto slang for holding your coins long-term regardless of price volatility. Originally a typo."},
-  {term:"Whale",def:"An entity holding so much cryptocurrency they can influence market prices when they buy or sell."},
-  {term:"Rug Pull",def:"When project developers abandon it and steal investor funds, leaving token price at zero."},
-  {term:"Airdrop",def:"Free tokens sent to wallet addresses, often used for marketing or rewarding early community members."},
   {term:"Monad",def:"A high-performance EVM-compatible Layer 1 blockchain with parallel execution targeting 10,000+ TPS."},
   {term:"EVM",def:"Ethereum Virtual Machine — the computing environment that runs smart contracts on Ethereum and compatible chains."},
   {term:"Layer 2",def:"A scaling solution built on top of a Layer 1 blockchain to increase speed and reduce fees."},
-  {term:"Proof of Work",def:"Bitcoin's consensus — miners compete by solving math puzzles to earn the right to add the next block."},
-  {term:"Proof of Stake",def:"Validators are chosen to add blocks based on their staked tokens, used by Ethereum since The Merge."},
-  {term:"Decentralization",def:"No single entity controls the network. Power is distributed across many independent nodes globally."},
-  {term:"Hash Rate",def:"The total computational power dedicated to mining a blockchain. Higher = more secure."},
-  {term:"Liquidity Pool",def:"Tokens locked in a smart contract enabling decentralized trading. LPs earn a share of trading fees."},
-  {term:"Yield Farming",def:"Earning rewards by depositing or staking tokens in DeFi protocols. Higher APY = higher risk."},
-  {term:"Tokenomics",def:"The economic model of a cryptocurrency: total supply, distribution schedule, utility, and incentives."},
-  {term:"Bull Market",def:"A prolonged period of rising prices and positive market sentiment. The opposite of a bear market."},
-  {term:"Bear Market",def:"A prolonged period of falling prices and negative sentiment. Often a 20%+ decline from recent highs."},
+  {term:"Whale",def:"An entity holding so much cryptocurrency they can influence market prices when they buy or sell."},
   {term:"MEV",def:"Maximal Extractable Value — profit validators extract by reordering, inserting, or censoring transactions."},
   {term:"Oracle",def:"A service bringing real-world data (prices, weather, sports) onto the blockchain for smart contracts to use."},
-  {term:"Bridge",def:"A protocol allowing you to transfer assets between different blockchains (e.g. ETH to Solana)."},
   {term:"Stablecoin",def:"A cryptocurrency designed to maintain a stable value, usually pegged 1:1 to the US dollar."},
+  {term:"Airdrop",def:"Free tokens sent to wallet addresses, often used for marketing or rewarding early community members."},
+  {term:"Rug Pull",def:"When project developers abandon it and steal investor funds, leaving token price at zero."},
+  {term:"Bull Market",def:"A prolonged period of rising prices and positive market sentiment. The opposite of a bear market."},
+  {term:"Liquidity Pool",def:"Tokens locked in a smart contract enabling decentralized trading. LPs earn a share of trading fees."},
 ];
 
 const SN = {
@@ -1333,8 +1005,6 @@ const SN = {
   snake:[], dir:{x:1,y:0}, nextDir:{x:1,y:0},
   food:{x:10,y:10}, score:0, eaten:0,
   speed:150, timer:null, running:false,
-  termIdx:0, // which term to show next
-  usedTerms:new Set()
 };
 
 function snakeInitCanvas(){
@@ -1355,13 +1025,10 @@ function startSnake(){
   SN.snake = [{x:12,y:12},{x:11,y:12},{x:10,y:12}];
   SN.dir = {x:1,y:0}; SN.nextDir = {x:1,y:0};
   SN.score=0; SN.eaten=0; SN.speed=150; SN.running=true;
-  SN.usedTerms = new Set();
-  SN.termIdx=0;
   placeFood();
   showOverlay(false);
   document.getElementById('sn-center').textContent='⏸';
   updateSnakeUI();
-  // show first term
   setLearnTerm(CRYPTO_TERMS[0], false);
   SN.timer = setInterval(snakeStep, SN.speed);
 }
@@ -1387,39 +1054,23 @@ function placeFood(){
 function snakeStep(){
   SN.dir = SN.nextDir;
   const head = {x:SN.snake[0].x+SN.dir.x, y:SN.snake[0].y+SN.dir.y};
-
-  // Wall collision
-  if(head.x<0||head.x>=SN.COLS||head.y<0||head.y>=SN.ROWS){
-    snakeGameOver(); return;
-  }
-  // Self collision
-  if(SN.snake.some(s=>s.x===head.x&&s.y===head.y)){
-    snakeGameOver(); return;
-  }
-
+  if(head.x<0||head.x>=SN.COLS||head.y<0||head.y>=SN.ROWS){ snakeGameOver(); return; }
+  if(SN.snake.some(s=>s.x===head.x&&s.y===head.y)){ snakeGameOver(); return; }
   SN.snake.unshift(head);
-
   if(head.x===SN.food.x&&head.y===SN.food.y){
-    // EAT — grow (don't pop), increase score, increase speed
     SN.eaten++;
     SN.score += 10 * Math.ceil(SN.eaten/3);
     placeFood();
-
-    // Speed up every 5 tokens
     if(SN.eaten%5===0){
       clearInterval(SN.timer);
       SN.speed = Math.max(60, SN.speed-15);
       SN.timer = setInterval(snakeStep, SN.speed);
     }
-
-    // Show next crypto term
-    const nextTerm = CRYPTO_TERMS[SN.eaten % CRYPTO_TERMS.length];
-    setLearnTerm(nextTerm, true);
+    setLearnTerm(CRYPTO_TERMS[SN.eaten % CRYPTO_TERMS.length], true);
     updateSnakeUI();
   } else {
     SN.snake.pop();
   }
-
   drawSnake();
 }
 
@@ -1427,12 +1078,8 @@ function setLearnTerm(term, isNew){
   document.getElementById('learn-term').textContent = term.term;
   document.getElementById('learn-def').textContent = term.def;
   const badge = document.getElementById('learn-badge');
-  if(isNew){
-    badge.style.display='block';
-    setTimeout(()=>badge.style.display='none', 2500);
-  } else {
-    badge.style.display='none';
-  }
+  if(isNew){ badge.style.display='block'; setTimeout(()=>badge.style.display='none', 2500); }
+  else { badge.style.display='none'; }
 }
 
 function updateSnakeUI(){
@@ -1445,31 +1092,19 @@ function updateSnakeUI(){
 function drawSnake(){
   const ctx=SN.ctx, C=SN.CELL;
   ctx.clearRect(0,0,SN.canvas.width,SN.canvas.height);
-
-  // Background grid
-  ctx.strokeStyle='rgba(123,47,190,0.05)';
-  ctx.lineWidth=0.5;
+  ctx.strokeStyle='rgba(123,47,190,0.05)'; ctx.lineWidth=0.5;
   for(let x=0;x<=SN.COLS;x++){ ctx.beginPath();ctx.moveTo(x*C,0);ctx.lineTo(x*C,SN.canvas.height);ctx.stroke(); }
   for(let y=0;y<=SN.ROWS;y++){ ctx.beginPath();ctx.moveTo(0,y*C);ctx.lineTo(SN.canvas.width,y*C);ctx.stroke(); }
-
-  // Snake segments
   SN.snake.forEach((seg,i)=>{
     const alpha = Math.max(0.25, 1-(i/SN.snake.length)*0.65);
-    if(i===0){
-      ctx.fillStyle='#7B2FBE';
-    } else {
-      ctx.fillStyle=`rgba(155,89,232,${alpha})`;
-    }
+    ctx.fillStyle = i===0 ? '#7B2FBE' : `rgba(155,89,232,${alpha})`;
     ctx.beginPath();
     if(ctx.roundRect) ctx.roundRect(seg.x*C+1, seg.y*C+1, C-2, C-2, i===0?7:4);
     else ctx.rect(seg.x*C+1, seg.y*C+1, C-2, C-2);
     ctx.fill();
-
-    // Head eyes
     if(i===0){
       ctx.fillStyle='#fff';
-      let e1x=seg.x*C+5, e1y=seg.y*C+5;
-      let e2x=seg.x*C+C-7, e2y=seg.y*C+5;
+      let e1x=seg.x*C+5, e1y=seg.y*C+5, e2x=seg.x*C+C-7, e2y=seg.y*C+5;
       if(SN.dir.x===1){ e1x=seg.x*C+C-6; e1y=seg.y*C+5; e2x=seg.x*C+C-6; e2y=seg.y*C+C-7; }
       if(SN.dir.x===-1){ e1x=seg.x*C+4; e1y=seg.y*C+5; e2x=seg.x*C+4; e2y=seg.y*C+C-7; }
       if(SN.dir.y===-1){ e1y=seg.y*C+4; e2y=seg.y*C+4; }
@@ -1481,30 +1116,22 @@ function drawSnake(){
       ctx.beginPath(); ctx.arc(e2x,e2y,1.2,0,Math.PI*2); ctx.fill();
     }
   });
-
-  // Food — MON token coin
   const fx=SN.food.x*C, fy=SN.food.y*C;
-  ctx.fillStyle='#EDE4FF';
-  ctx.strokeStyle='#7B2FBE'; ctx.lineWidth=2;
+  ctx.fillStyle='#EDE4FF'; ctx.strokeStyle='#7B2FBE'; ctx.lineWidth=2;
   ctx.beginPath();
-  if(ctx.roundRect) ctx.roundRect(fx+2,fy+2,C-4,C-4,6);
-  else ctx.rect(fx+2,fy+2,C-4,C-4);
+  if(ctx.roundRect) ctx.roundRect(fx+2,fy+2,C-4,C-4,6); else ctx.rect(fx+2,fy+2,C-4,C-4);
   ctx.fill(); ctx.stroke();
-  ctx.fillStyle='#7B2FBE';
-  ctx.font=`bold ${C-6}px Calibri,Arial,sans-serif`;
+  ctx.fillStyle='#7B2FBE'; ctx.font=`bold ${C-6}px Calibri,Arial,sans-serif`;
   ctx.textAlign='center'; ctx.textBaseline='middle';
   ctx.fillText('M',fx+C/2,fy+C/2+1);
 }
 
 function snakeGameOver(){
-  clearInterval(SN.timer);
-  SN.running=false;
+  clearInterval(SN.timer); SN.running=false;
   G.snBest = Math.max(G.snBest||0, SN.score);
   saveG(); syncXP();
   document.getElementById('sn-best').textContent = G.snBest;
   document.getElementById('sn-center').textContent='▶';
-
-  // Draw game-over overlay on canvas
   const ctx=SN.ctx;
   ctx.fillStyle='rgba(243,238,255,0.9)';
   ctx.fillRect(0,0,SN.canvas.width,SN.canvas.height);
@@ -1514,30 +1141,17 @@ function snakeGameOver(){
   ctx.font='20px Calibri,Arial,sans-serif'; ctx.fillStyle='#7B6B99';
   ctx.fillText(`Score: ${SN.score}`,SN.canvas.width/2,SN.canvas.height/2+5);
   ctx.fillText(`Best: ${G.snBest}`,SN.canvas.width/2,SN.canvas.height/2+30);
-  ctx.font='15px Calibri,Arial,sans-serif';
-  ctx.fillText(`Crypto terms learned: ${SN.eaten}`,SN.canvas.width/2,SN.canvas.height/2+56);
-
-  // Show overlay for replay
   const ov = document.getElementById('snake-overlay');
-  ov.innerHTML=`
-    <h2 style="color:#7B2FBE">Game Over!</h2>
-    <p>Score: <strong>${SN.score}</strong> · Best: <strong>${G.snBest}</strong></p>
-    <p style="font-size:.82rem;color:#7B6B99">You learned ${SN.eaten} crypto term${SN.eaten!==1?'s':''}! 🎓</p>
-    <button class="game-start-btn" onclick="startSnake()">▶ Play Again</button>`;
+  ov.innerHTML=`<h2 style="color:#7B2FBE">Game Over!</h2><p>Score: <strong>${SN.score}</strong> · Best: <strong>${G.snBest}</strong></p><p style="font-size:.82rem;color:#7B6B99">You learned ${SN.eaten} crypto term${SN.eaten!==1?'s':''}! 🎓</p><button class="game-start-btn" onclick="startSnake()">▶ Play Again</button>`;
   ov.style.display='flex';
 }
 
-// Arrow key support for snake
 document.addEventListener('keydown',e=>{
   const map={ArrowUp:{x:0,y:-1},ArrowDown:{x:0,y:1},ArrowLeft:{x:-1,y:0},ArrowRight:{x:1,y:0}};
   if(map[e.key]&&SN.running){ e.preventDefault(); snDir(map[e.key].x,map[e.key].y); }
-  if(e.key==='ArrowUp'||e.key==='ArrowDown') e.preventDefault(); // prevent page scroll
+  if(e.key==='ArrowUp'||e.key==='ArrowDown') e.preventDefault();
 });
 
-
-// =====================================================
-//  BILLIARD GAME — physics pool
-// =====================================================
 const BL_W=660, BL_H=380;
 const PKT_R=17;
 const POCKETS=[
@@ -1547,24 +1161,18 @@ const POCKETS=[
 const BALL_COLORS=['#7B2FBE','#D97706','#DC2626','#059669','#2563EB','#9333EA',
   '#DB2777','#0891B2','#65A30D','#EA580C','#8B5CF6','#EC4899','#06B6D4','#84CC16','#F59E0B'];
 
-let BLG = {}; // billiard game state
+let BLG = {};
 
 function initBilliard(){
   const canvas=document.getElementById('billiardCanvas');
   canvas.width=BL_W; canvas.height=BL_H;
-  BLG = {
-    canvas, ctx:canvas.getContext('2d'),
-    balls:[], cue:null,
-    drag:false, dragEnd:null,
-    shots:0, score:0, af:null
-  };
+  if(BLG.canvas) { stopBilliard(); }
+  BLG = { canvas, ctx:canvas.getContext('2d'), balls:[], cue:null, drag:false, dragEnd:null, shots:0, score:0, af:null };
+  canvas.onmousedown=blDown; canvas.onmousemove=blMove; canvas.onmouseup=blUp;
+  canvas.ontouchstart=e=>{e.preventDefault();blDown({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY});};
+  canvas.ontouchmove=e=>{e.preventDefault();blMove({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY});};
+  canvas.ontouchend=e=>{e.preventDefault();blUp({clientX:e.changedTouches[0].clientX,clientY:e.changedTouches[0].clientY});};
   resetBilliard();
-  canvas.addEventListener('mousedown',blDown);
-  canvas.addEventListener('mousemove',blMove);
-  canvas.addEventListener('mouseup',blUp);
-  canvas.addEventListener('touchstart',e=>{e.preventDefault();blDown({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY});},{passive:false});
-  canvas.addEventListener('touchmove', e=>{e.preventDefault();blMove({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY});},{passive:false});
-  canvas.addEventListener('touchend',  e=>{e.preventDefault();blUp({clientX:e.changedTouches[0].clientX,clientY:e.changedTouches[0].clientY});},{passive:false});
 }
 
 function resetBilliard(){
@@ -1572,7 +1180,6 @@ function resetBilliard(){
   BLG.shots=0; BLG.score=0;
   BLG.cue={x:170,y:BL_H/2,vx:0,vy:0,r:11,color:'#ffffff',isCue:true,pocketed:false};
   BLG.balls=[];
-  // rack triangle
   const sx=460,sy=BL_H/2,gap=24;
   let count=0;
   for(let r=0;r<5;r++) for(let c=0;c<=r;c++){
@@ -1592,66 +1199,28 @@ function blPos(e){
   const r=BLG.canvas.getBoundingClientRect();
   return {x:(e.clientX-r.left)*(BL_W/r.width), y:(e.clientY-r.top)*(BL_H/r.height)};
 }
-function blDown(e){
-  const p=blPos(e);
-  const dx=p.x-BLG.cue.x, dy=p.y-BLG.cue.y;
-  if(Math.sqrt(dx*dx+dy*dy)<BLG.cue.r+12&&!BLG.cue.pocketed){
-    BLG.drag=true; BLG.dragEnd=p;
-  }
-}
+function blDown(e){ const p=blPos(e); const dx=p.x-BLG.cue.x, dy=p.y-BLG.cue.y; if(Math.sqrt(dx*dx+dy*dy)<BLG.cue.r+12&&!BLG.cue.pocketed){ BLG.drag=true; BLG.dragEnd=p; } }
 function blMove(e){ if(BLG.drag) BLG.dragEnd=blPos(e); }
-function blUp(e){
-  if(!BLG.drag) return;
-  BLG.drag=false;
-  const p=blPos(e);
-  const dx=BLG.cue.x-p.x, dy=BLG.cue.y-p.y;
-  const power=Math.min(Math.sqrt(dx*dx+dy*dy)*0.26,16);
-  const len=Math.sqrt(dx*dx+dy*dy)||1;
-  BLG.cue.vx=(dx/len)*power; BLG.cue.vy=(dy/len)*power;
-  BLG.shots++; updateBilliardUI();
-  document.getElementById('bl-hint').textContent='🎱 Balls in motion...';
-}
+function blUp(e){ if(!BLG.drag) return; BLG.drag=false; const p=blPos(e); const dx=BLG.cue.x-p.x, dy=BLG.cue.y-p.y; const power=Math.min(Math.sqrt(dx*dx+dy*dy)*0.26,16); const len=Math.sqrt(dx*dx+dy*dy)||1; BLG.cue.vx=(dx/len)*power; BLG.cue.vy=(dy/len)*power; BLG.shots++; updateBilliardUI(); document.getElementById('bl-hint').textContent='🎱 Balls in motion...'; }
 
-function billiardLoop(){
-  updateBilliardPhysics(); drawBilliard();
-  BLG.af=requestAnimationFrame(billiardLoop);
-}
+function billiardLoop(){ updateBilliardPhysics(); drawBilliard(); BLG.af=requestAnimationFrame(billiardLoop); }
 
 function updateBilliardPhysics(){
   const all=[BLG.cue,...BLG.balls].filter(b=>!b.pocketed);
   const fr=0.979;
   all.forEach(b=>{
-    b.x+=b.vx; b.y+=b.vy;
-    b.vx*=fr; b.vy*=fr;
-    if(Math.abs(b.vx)<0.015) b.vx=0;
-    if(Math.abs(b.vy)<0.015) b.vy=0;
-    // walls
+    b.x+=b.vx; b.y+=b.vy; b.vx*=fr; b.vy*=fr;
+    if(Math.abs(b.vx)<0.015) b.vx=0; if(Math.abs(b.vy)<0.015) b.vy=0;
     const margin=PKT_R*1.1;
     if(b.x-b.r<margin){ b.x=b.r+margin; b.vx=Math.abs(b.vx); }
     if(b.x+b.r>BL_W-margin){ b.x=BL_W-b.r-margin; b.vx=-Math.abs(b.vx); }
     if(b.y-b.r<margin*0.6){ b.y=b.r+margin*0.6; b.vy=Math.abs(b.vy); }
     if(b.y+b.r>BL_H-margin*0.6){ b.y=BL_H-b.r-margin*0.6; b.vy=-Math.abs(b.vy); }
-    // pockets
-    POCKETS.forEach(p=>{
-      if(Math.sqrt((b.x-p.x)**2+(b.y-p.y)**2)<PKT_R*0.88){
-        b.pocketed=true;
-        if(!b.isCue){ BLG.score+=100; spawnConfetti(4); }
-        else { setTimeout(()=>{BLG.cue.x=170;BLG.cue.y=BL_H/2;BLG.cue.vx=0;BLG.cue.vy=0;BLG.cue.pocketed=false;},1200); }
-        updateBilliardUI();
-        if(BLG.balls.filter(b2=>!b2.pocketed).length===0) billiardWin();
-      }
-    });
+    POCKETS.forEach(p=>{ if(Math.sqrt((b.x-p.x)**2+(b.y-p.y)**2)<PKT_R*0.88){ b.pocketed=true; if(!b.isCue){ BLG.score+=100; spawnConfetti(4); } else { setTimeout(()=>{BLG.cue.x=170;BLG.cue.y=BL_H/2;BLG.cue.vx=0;BLG.cue.vy=0;BLG.cue.pocketed=false;},1200); } updateBilliardUI(); if(BLG.balls.filter(b2=>!b2.pocketed).length===0) billiardWin(); } });
   });
-  // ball-ball collision
   for(let i=0;i<all.length;i++) for(let j=i+1;j<all.length;j++){
-    const a=all[i],b=all[j];
-    const dx=b.x-a.x, dy=b.y-a.y, dist=Math.sqrt(dx*dx+dy*dy);
-    if(dist<a.r+b.r&&dist>0){
-      const nx=dx/dist, ny=dy/dist, ov=(a.r+b.r-dist)/2;
-      a.x-=nx*ov; a.y-=ny*ov; b.x+=nx*ov; b.y+=ny*ov;
-      const dvx=a.vx-b.vx, dvy=a.vy-b.vy, dot=dvx*nx+dvy*ny;
-      if(dot>0){ a.vx-=dot*nx; a.vy-=dot*ny; b.vx+=dot*nx; b.vy+=dot*ny; }
-    }
+    const a=all[i],b=all[j]; const dx=b.x-a.x, dy=b.y-a.y, dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<a.r+b.r&&dist>0){ const nx=dx/dist, ny=dy/dist, ov=(a.r+b.r-dist)/2; a.x-=nx*ov; a.y-=ny*ov; b.x+=nx*ov; b.y+=ny*ov; const dvx=a.vx-b.vx, dvy=a.vy-b.vy, dot=dvx*nx+dvy*ny; if(dot>0){ a.vx-=dot*nx; a.vy-=dot*ny; b.vx+=dot*nx; b.vy+=dot*ny; } }
   }
   const moving=all.some(b=>Math.abs(b.vx)>0.05||Math.abs(b.vy)>0.05);
   if(!moving) document.getElementById('bl-hint').textContent='🎱 Click on the white cue ball and drag to aim. Release to shoot!';
@@ -1660,64 +1229,30 @@ function updateBilliardPhysics(){
 function drawBilliard(){
   const ctx=BLG.ctx;
   ctx.clearRect(0,0,BL_W,BL_H);
-  // felt
   ctx.fillStyle='#F8F4FF'; ctx.fillRect(0,0,BL_W,BL_H);
-  // border
-  ctx.strokeStyle='#7B2FBE'; ctx.lineWidth=3;
-  ctx.strokeRect(1.5,1.5,BL_W-3,BL_H-3);
-  // grid
-  ctx.strokeStyle='rgba(123,47,190,0.04)'; ctx.lineWidth=1;
-  for(let x=0;x<BL_W;x+=40){ ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,BL_H);ctx.stroke(); }
-  for(let y=0;y<BL_H;y+=40){ ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(BL_W,y);ctx.stroke(); }
-  // center line
-  ctx.setLineDash([6,6]); ctx.strokeStyle='rgba(123,47,190,0.12)'; ctx.lineWidth=1;
-  ctx.beginPath();ctx.moveTo(BL_W/2,0);ctx.lineTo(BL_W/2,BL_H);ctx.stroke(); ctx.setLineDash([]);
-  // pockets
-  POCKETS.forEach(p=>{
-    ctx.fillStyle='#2D1B4E'; ctx.beginPath(); ctx.arc(p.x,p.y,PKT_R,0,Math.PI*2); ctx.fill();
-    ctx.strokeStyle='rgba(123,47,190,0.35)'; ctx.lineWidth=2;
-    ctx.beginPath(); ctx.arc(p.x,p.y,PKT_R,0,Math.PI*2); ctx.stroke();
-  });
-  // aim guide
+  ctx.strokeStyle='#7B2FBE'; ctx.lineWidth=3; ctx.strokeRect(1.5,1.5,BL_W-3,BL_H-3);
+  POCKETS.forEach(p=>{ ctx.fillStyle='#2D1B4E'; ctx.beginPath(); ctx.arc(p.x,p.y,PKT_R,0,Math.PI*2); ctx.fill(); });
   if(BLG.drag&&BLG.dragEnd&&!BLG.cue.pocketed){
-    const dx=BLG.cue.x-BLG.dragEnd.x, dy=BLG.cue.y-BLG.dragEnd.y;
-    const len=Math.sqrt(dx*dx+dy*dy)||1;
+    const dx=BLG.cue.x-BLG.dragEnd.x, dy=BLG.cue.y-BLG.dragEnd.y, len=Math.sqrt(dx*dx+dy*dy)||1;
     ctx.setLineDash([6,4]); ctx.strokeStyle='rgba(123,47,190,0.3)'; ctx.lineWidth=1.5;
-    ctx.beginPath(); ctx.moveTo(BLG.cue.x,BLG.cue.y);
-    ctx.lineTo(BLG.cue.x+dx/len*180,BLG.cue.y+dy/len*180); ctx.stroke();
-    ctx.setLineDash([]);
-    // power bar
-    const pwr=Math.min(len*0.26,16)/16;
-    ctx.fillStyle=`rgba(${Math.round(pwr*220)},${Math.round((1-pwr)*160)},80,0.75)`;
-    ctx.beginPath(); if(ctx.roundRect) ctx.roundRect(BL_W-72,BL_H-26,58*pwr,8,3); else ctx.rect(BL_W-72,BL_H-26,58*pwr,8); ctx.fill();
-    ctx.strokeStyle='rgba(123,47,190,0.25)'; ctx.lineWidth=1;
-    ctx.beginPath(); if(ctx.roundRect) ctx.roundRect(BL_W-72,BL_H-26,58,8,3); else ctx.rect(BL_W-72,BL_H-26,58,8); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(BLG.cue.x,BLG.cue.y); ctx.lineTo(BLG.cue.x+dx/len*180,BLG.cue.y+dy/len*180); ctx.stroke(); ctx.setLineDash([]);
   }
-  // numbered balls
   BLG.balls.filter(b=>!b.pocketed).forEach(b=>{
-    ctx.shadowColor='rgba(0,0,0,0.12)'; ctx.shadowBlur=7;
     ctx.fillStyle=b.color; ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur=0;
     ctx.fillStyle='rgba(255,255,255,0.25)'; ctx.beginPath(); ctx.arc(b.x-3,b.y-3,b.r*0.42,0,Math.PI*2); ctx.fill();
     ctx.fillStyle='#fff'; ctx.font='bold 9px Calibri,Arial'; ctx.textAlign='center'; ctx.textBaseline='middle';
     ctx.fillText(b.num,b.x,b.y+0.5);
   });
-  // cue ball
   if(!BLG.cue.pocketed){
-    ctx.shadowColor='rgba(0,0,0,0.12)'; ctx.shadowBlur=7;
     ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(BLG.cue.x,BLG.cue.y,BLG.cue.r,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur=0;
-    ctx.strokeStyle='#D5C2F0'; ctx.lineWidth=2;
-    ctx.beginPath(); ctx.arc(BLG.cue.x,BLG.cue.y,BLG.cue.r,0,Math.PI*2); ctx.stroke();
-    ctx.fillStyle='rgba(123,47,190,0.12)'; ctx.beginPath(); ctx.arc(BLG.cue.x-3,BLG.cue.y-3,BLG.cue.r*0.38,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle='#D5C2F0'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(BLG.cue.x,BLG.cue.y,BLG.cue.r,0,Math.PI*2); ctx.stroke();
   }
 }
 
 function billiardWin(){
   G.blBest=Math.max(G.blBest||0,BLG.score); saveG(); syncXP();
   document.getElementById('bl-hint').textContent=`🏆 All balls potted! Score: ${BLG.score} in ${BLG.shots} shots. Click Reset to play again.`;
-  updateBilliardUI(); spawnConfetti(40);
-  toast(`🏆 You won! Score: ${BLG.score}`);
+  updateBilliardUI(); spawnConfetti(40); toast(`🏆 You won! Score: ${BLG.score}`);
 }
 
 function updateBilliardUI(){
@@ -1727,32 +1262,19 @@ function updateBilliardUI(){
   document.getElementById('bl-best').textContent=G.blBest||0;
 }
 
-
-// =====================================================
-//  UTILITIES
-// =====================================================
 const CONF_COLORS=['#7B2FBE','#9B59E8','#D97706','#059669','#DC2626','#C4A0F0'];
 function spawnConfetti(n){
   for(let i=0;i<n;i++){
     setTimeout(()=>{
-      const el=document.createElement('div');
-      el.className='conf';
+      const el=document.createElement('div'); el.className='conf';
       el.style.cssText=`left:${Math.random()*100}vw;top:-8px;background:${CONF_COLORS[Math.floor(Math.random()*CONF_COLORS.length)]};width:${6+Math.random()*7}px;height:${6+Math.random()*7}px;animation-duration:${2+Math.random()*2}s;animation-delay:${Math.random()*0.3}s`;
-      document.body.appendChild(el);
-      setTimeout(()=>el.remove(),4500);
+      document.body.appendChild(el); setTimeout(()=>el.remove(),4500);
     },i*55);
   }
 }
 
-function shuffle(arr){
-  const a=[...arr];
-  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
-  return a;
-}
+function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 
-// =====================================================
-//  INIT
-// =====================================================
 syncXP();
 </script>
 </body>
